@@ -1,10 +1,10 @@
 var cells = [];
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(600, 600);
   background(51);
 
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < 10; i++) {
     x = random(width);
     y = random(height);
     cell = new Cell();
