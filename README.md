@@ -8,3 +8,4 @@ This is a simple little simulation of a petri dish. Coded in javascript using th
 - [ ] Mutation
 - [ ] Predation
 - [ ] Antibiotics resistance
+- [ ] Food specks (different kinds? veggie/meat?)

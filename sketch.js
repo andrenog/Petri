@@ -4,7 +4,7 @@ function setup() {
   createCanvas(600, 600);
   background(51);
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 5; i++) {
     x = random(width);
     y = random(height);
     cell = new Cell();
@@ -19,7 +19,5 @@ function draw() {
     cells[i].show();
     cells[i].move();
   }
-
-  //console.log(cells[0].vel)
 }
 
