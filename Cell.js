@@ -1,19 +1,23 @@
 function Cell() {
     // generate position, diameter
     this.diam = random(50, 100);
-    this.pos = createVector(random(this.diam*0.6, width-this.diam*0.6), 
-                            random(this.diam*0.6, height-this.diam*0.6));
+    this.pos = createVector(random(this.diam * 0.6, width - this.diam * 0.6),
+        random(this.diam * 0.6, height - this.diam * 0.6));
 
     // generate random color
-    this.colour = [random(255), random(255), random(255), 100];
-    
+    this.colour = [random(255), random(255), random(255), 125];
+
     this.count = 0;
     this.vel = p5.Vector();
 
     // choose random offsets for drawing the cell nucleus
-    this.offsetX = random(-this.diam * 0.1, this.diam * 0.1);
-    this.offsetY = random(-this.diam * 0.1, this.diam * 0.1);
+    this.offsetX = 0; // random(-this.diam * 0.1, this.diam * 0.1);
+    this.offsetY = 0; // random(-this.diam * 0.1, this.diam * 0.1);
     this.offsetR = random(0.2, 0.4);
+
+    // traits
+    this.speed = random(0.1, 0.3);
+    this.growthMult = random(.999,1.001);
 
     this.show = function () {
         noStroke();
@@ -27,9 +31,9 @@ function Cell() {
         // change direction if the timer runs out
         if (this.count <= 0) {
             // pick a new random direction
-            this.vel = p5.Vector.mult(p5.Vector.random2D(), 0.4);
+            this.vel = p5.Vector.mult(p5.Vector.random2D(), this.speed);
             // reset the timer
-            this.count = floor(random(100, 200));
+            this.count = floor(random(200, 500));
         } else {
             this.count--;
         }
@@ -40,6 +44,9 @@ function Cell() {
             this.vel.rotate(PI);
         }
         this.pos.add(this.vel);
+    }
 
+    this.grow = function () {
+        this.diam *= this.growthMult;
     }
 }
