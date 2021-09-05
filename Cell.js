@@ -17,7 +17,7 @@ function Cell() {
 
     // traits
     this.speed = random(0.1, 0.3);
-    this.growthMult = random(.999,1.001);
+    this.growthMult = random(.9999, 1.001);
 
     this.show = function () {
         noStroke();
@@ -48,5 +48,10 @@ function Cell() {
 
     this.grow = function () {
         this.diam *= this.growthMult;
+        this.diam = constrain(this.diam, width / 100, width * .75);
+    }
+
+    this.mitosis = function () {
+        
     }
 }
